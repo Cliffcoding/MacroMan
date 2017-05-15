@@ -2,8 +2,8 @@
 App that allows you to search for food and track how many calories you have consumed
 
 ## WireFrames
-[Search Page](https://wireframe.cc/HnBw8U)
-[Results](https://wireframe.cc/I8vkcM)
+* [Search Page](https://wireframe.cc/HnBw8U)
+* [Results](https://wireframe.cc/I8vkcM)
 
 ## Feature list
 1. Search for the Item
