@@ -4,7 +4,7 @@ const $table = $('table')
 const caloriesPerFat = 9
 const caloriesPerCarbProtein = 4
 
-const macroNutrients = "?fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_protein%2Cnf_total_fat%2Cnf_total_carbohydrate%2C"
+const macroNutrients = "?results=0:15&fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_protein%2Cnf_total_fat%2Cnf_total_carbohydrate%2C"
 const keyId = "&appId=4e7274ea&appKey=882bd0a0ffb027f291e1829749c05598"
 const url = "https://api.nutritionix.com/v1_1/search/"
 
@@ -39,6 +39,7 @@ function updateMacros() {
 }
 function addMacros() {
   return $(`
+    <h5>Calories Remaining</h5>
     <p>Calories: ${macroTotal.calories}</p>
     <p>Fats: ${macroTotal.fats}</p>
     <p>Carbohydrates: ${macroTotal.carbs}</p>

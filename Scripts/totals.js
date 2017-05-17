@@ -5,4 +5,5 @@ function appReady() {
   $('#searchSubmit').submit(submitForm);
   clickFoodItem();
   removeFromList();
+  
 }
