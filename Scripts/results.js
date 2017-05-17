@@ -7,6 +7,7 @@ function hideElements() {
 function clickFoodItem() {
   $('.nutritionFacts').on("click", "a.addButton", getFoodItemData);
 }
+
 function getFoodItemData() {
   const $targetParent = $(this).parents('tr')[0]
   const targetData = JSON.parse($targetParent.dataset.json);
@@ -22,7 +23,7 @@ function getFoodItemData() {
 function createNutrientsList(data) {
   return $(`<div class="itemSelector">
     <li class="collection-header truncate macroData grey lighten-4" data-json='${JSON.stringify(data)}'>
-    <a class="deleteButton blue-grey lighten-1 waves-effect waves-light btn-floating btn"><i class="material-icons">delete</i></a>
+    <a class="deleteButton cyan lighten-1 waves-effect waves-light btn-floating btn"><i class="material-icons">delete</i></a>
     ${data[0].fields.item_name}</li>
     <li class="collection-item">Calories: <span class="calories">${Math.round(data[0].fields.nf_calories)}</span><br>
     Fats:<span class="fats"> ${Math.round(data[0].fields.nf_total_fat)}</span><br>
