@@ -36,15 +36,39 @@ function getUserMacros(event) {
 function updateMacros() {
   $('.results').empty()
   $('.results').append(addMacros);
+  updatePieChart();
 }
 function addMacros() {
-  return $(`
+  return $(`<section class='row'>
+    <article class="col s6">
     <h5>Calories Remaining</h5>
     <p>Calories: ${macroTotal.calories}</p>
     <p>Fats: ${macroTotal.fats}</p>
     <p>Carbohydrates: ${macroTotal.carbs}</p>
     <p>Protein: ${macroTotal.protein}</p>
+    </article>
+    <article class="col 6">
+    </canvas><canvas id="myChart"></canvas>
+    </article>
     `)
+}
+function updatePieChart() {
+  var ctx = $('#myChart')[0].getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ["Fats", "Carbohydrates", "Protein"],
+      datasets: [{
+        backgroundColor: [
+          "#2ecc71",
+          "#3498db",
+          "#95a5a6"
+        ],
+        data: [macroTotal.fats * caloriesPerFat, macroTotal.carbs * caloriesPerCarbProtein, macroTotal.protein * caloriesPerCarbProtein]
+      }]
+    }
+  });
+
 }
 function getNutrients() {
   $.get(url + $searchInput.val() + macroNutrients + keyId)
