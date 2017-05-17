@@ -1,7 +1,8 @@
 $(appReady);
 function appReady() {
   hideElements()
-  $form.submit(submitForm);
+  $('#macroSubmit').submit(getUserMacros)
+  $('#searchSubmit').submit(submitForm);
   clickFoodItem();
   removeFromList();
 }
