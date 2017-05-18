@@ -102,6 +102,7 @@ function createNutrientsTable(nutrients) {
   return $(`
         <tr data-json='${JSON.stringify(nutrients)}'>
           <td><a class="addButton cyan lighten-1 waves-effect waves-light btn-floating btn-large"><i class="material-icons">add</i></a></td>
+          <td><small>${nutrients.fields.brand_name}</small></td>
           <td>${nutrients.fields.item_name}</td>
           <td>${Math.round(nutrients.fields.nf_calories)}</td>
           <td>${Math.round(nutrients.fields.nf_total_fat)}</td>
