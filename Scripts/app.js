@@ -1,12 +1,12 @@
 const $nutritionFacts = $('.nutritionFacts');
 const $searchInput = $('#searchInput');
-const $table = $('table')
-const caloriesPerFat = 9
-const caloriesPerCarbProtein = 4
+const $table = $('table');
+const caloriesPerFat = 9;
+const caloriesPerCarbProtein = 4;
 
-const macroNutrients = "?results=0:15&fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_protein%2Cnf_total_fat%2Cnf_total_carbohydrate%2C"
-const keyId = "&appId=4e7274ea&appKey=882bd0a0ffb027f291e1829749c05598"
-const url = "https://api.nutritionix.com/v1_1/search/"
+const macroNutrients = "?results=0:15&fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_protein%2Cnf_total_fat%2Cnf_total_carbohydrate%2C";
+const keyId = "&appId=4e7274ea&appKey=882bd0a0ffb027f291e1829749c05598";
+const url = "https://api.nutritionix.com/v1_1/search/";
 
 const macroTotal = {
   calories: null,
@@ -14,12 +14,15 @@ const macroTotal = {
   carbs: null,
   protein: null
 }
+
 function submitForm(event) {
   event.preventDefault();
   $table.show();
   $nutritionFacts.empty();
   getNutrients();
-
+}
+function toggleAbout() {
+  $('#about').toggle();
 }
 function getUserMacros(event) {
   event.preventDefault();
@@ -33,11 +36,13 @@ function getUserMacros(event) {
   macroTotal.protein = parseProtein;
   updateMacros();
 };
+
 function updateMacros() {
   $('.results').empty()
   $('.results').append(addMacros);
   updatePieChart();
 }
+
 function addMacros() {
   return $(`<section class='row'>
     <article class="col s6">
@@ -52,6 +57,7 @@ function addMacros() {
     </article>
     `)
 }
+
 function updatePieChart() {
   var ctx = $('#myChart')[0].getContext('2d');
   var myChart = new Chart(ctx, {
@@ -70,19 +76,23 @@ function updatePieChart() {
   });
 
 }
+
 function getNutrients() {
   $.get(url + $searchInput.val() + macroNutrients + keyId)
-  .then(showNutrients);
+    .then(showNutrients);
 
 }
+
 function showNutrients(result) {
   const results = result.hits
   results.forEach(addNutrients);
 }
+
 function addNutrients(nutrients) {
   const nutrientsTable = createNutrientsTable(nutrients)
   $('.nutritionFacts').append(nutrientsTable);
 }
+
 function createNutrientsTable(nutrients) {
   return $(`
         <tr data-json='${JSON.stringify(nutrients)}'>

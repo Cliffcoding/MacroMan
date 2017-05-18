@@ -4,6 +4,7 @@ function hideElements() {
   $('.listNutrients').hide()
   $('table').hide()
 }
+
 function clickFoodItem() {
   $('.nutritionFacts').on("click", "a.addButton", getFoodItemData);
 }
@@ -20,6 +21,7 @@ function getFoodItemData() {
   console.log(macroTotal);
   updateMacros();
 }
+
 function createNutrientsList(data) {
   return $(`<div class="itemSelector">
     <li class="collection-header truncate macroData grey lighten-4" data-json='${JSON.stringify(data)}'>
@@ -33,15 +35,18 @@ function createNutrientsList(data) {
     </div>
     `)
 }
+
 function totalMacros(data) {
   macroTotal.calories -= Math.round(data[0].fields.nf_calories);
   macroTotal.carbs -= Math.round(data[0].fields.nf_total_carbohydrate);
   macroTotal.fats -= Math.round(data[0].fields.nf_total_fat);
   macroTotal.protein -= Math.round(data[0].fields.nf_protein)
 }
+
 function removeFromList() {
   $('.listNutrients').on("click", "a.deleteButton", removeItem)
 }
+
 function removeItem() {
   const deleteFromList = $(this).parents('.itemSelector');
   const targetMacros = $(this).parents('.macroData')[0]
@@ -51,6 +56,7 @@ function removeItem() {
   updateMacros();
   console.log(macroTotal);
 }
+
 function removeMacros(data) {
   macroTotal.calories += Math.round(data[0].fields.nf_calories);
   macroTotal.carbs += Math.round(data[0].fields.nf_total_carbohydrate);
