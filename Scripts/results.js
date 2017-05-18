@@ -24,7 +24,7 @@ function getFoodItemData() {
 function createNutrientsList(data) {
   return $(`<div class="itemSelector row">
     <li class="collection-header truncate macroData grey lighten-4" data-json='${JSON.stringify(data)}'>
-    <span class="col s1"><a class="deleteButton cyan lighten-1 waves-effect waves-light btn-floating btn"><i class="material-icons">delete</i></a></span>
+    <span class="col s1"><a class="deleteButton cyan lighten-1 waves-effect waves-light btn-floating btn"><i class="material-icons">remove</i></a></span>
     <small class="col s1">${data[0].fields.brand_name}</small><br>
     <span class="col s1">${data[0].fields.item_name}</span></li>
     <li class="collection-item col offset-s1">Calories: <span class="calories">${Math.round(data[0].fields.nf_calories)}</span><br>
