@@ -1,7 +1,7 @@
  html {
    font-family: 'Rubik'
  }
-
+/*  ---Header and footer stick to top and bottom---  */
  body {
    display: flex;
    min-height: 100vh;
@@ -10,4 +10,13 @@
 
  main {
    flex: 1 0 auto;
+ }
+ #id-link{
+   margin-right: 2 em;
+ }
+ #macroSubmit, #searchInput, .results, #search-results {
+   margin-top: 3em;
+ }
+ul.listNutrients{
+   padding: 0 !important;
  }

@@ -21,9 +21,11 @@ function submitForm(event) {
   $nutritionFacts.empty();
   getNutrients();
 }
+
 function toggleAbout() {
   $('#about').toggle();
 }
+
 function getUserMacros(event) {
   event.preventDefault();
   $('#searchSubmit').show();
@@ -44,15 +46,18 @@ function updateMacros() {
 }
 
 function addMacros() {
-  return $(`<section class='row'>
-    <article class="col s6">
+  return $(`
+    <article class="col s12 m6 l4">
     <h5>Calories Remaining</h5>
     <p>Calories: ${macroTotal.calories}</p>
+    </article>
+    <article class="col s12 m6 l4">
+    <h5>Macronutrients Remaining</h5>
     <p>Fats: ${macroTotal.fats}</p>
     <p>Carbohydrates: ${macroTotal.carbs}</p>
     <p>Protein: ${macroTotal.protein}</p>
     </article>
-    <article class="col 6">
+    <article class="col s12 l4">
     </canvas><canvas id="myChart"></canvas>
     </article>
     `)
